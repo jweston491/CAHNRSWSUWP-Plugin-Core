@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: CAHNRS WSUWP Plugin Core
-Version: 0.0.5
+Version: 0.0.5+jweston491.0.1.0
 Description: Core feature set for CAHNRS sites.
-Author: washingtonstateuniversity, Danial Bleile
+Author: jweston491, washingtonstateuniversity, Danial Bleile
 Author URI: http://cahnrs.wsu.edu/communications/
 Plugin URI: https://github.com/washingtonstateuniversity/CAHNRSWSUWP-Plugin-Core
 Text Domain: cahnrswsuwp-plugin-core
@@ -21,6 +21,18 @@ if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 	return;
 } else {
 
-	include_once __DIR__ . '/lib/includes/cahnrswsuwp-core.php';
+	include_once __DIR__ . '/functions.php';
+
+	include_once __DIR__ . '/vendor/settings-api/settings-api-adapter.php';
+
+	if ( is_admin() ) {
+
+		include_once __DIR__ . '/vendor/save-post/save-post.php';
+
+	} // End if
+
+	include_once __DIR__ . '/includes/modules/include-modules.php';
+
+	include_once __DIR__ . '/includes/scripts/include-scripts.php';
 
 }
